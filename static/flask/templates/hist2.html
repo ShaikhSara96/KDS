@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bootstrap Navbar with Datepicker</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto"> <!-- add ml-auto class here -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('kds') }}" target="_blank">KDS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('history') }}" target="_blank">History</a>
+        </li>
+      </ul>
+    </div> 
+  </nav>   
+
+  <h2>Order Histories</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <form method="POST" action="{{ url_for('process_date') }}">
+                    <label for="datepicker">Select a date:</label>
+                    <input type="date" id="datepicker" name="datepicker" class="form-control">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{{ url_for('static', filename='image/BarChart.png') }}"  alt="Bar Chart" width="300" height="200">
+      </div>
+      <div class="col-md-6">
+        <img src="{{ url_for('static', filename='image/PieChart.png') }}"  alt="Pie Chart" width="300" height="200">
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap Datepicker JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+</body>
+</html>
